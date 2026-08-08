@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    steps:
+      - name: Check out repository / 检出仓库
+        uses: actions/checkout@v4
+
+      - name: Build Swift package / 构建 Swift 包
+        run: swift build
+
+      - name: Run parser tests / 运行解析测试
+        run: ./Scripts/test.sh
+
+      - name: Validate Xcode project / 验证 Xcode 工程
+        run: >-
+          xcodebuild
+          -project CodexMeter.xcodeproj
+          -scheme CodexMeter
+          -configuration Debug
+          CODE_SIGNING_ALLOWED=NO
+          build
