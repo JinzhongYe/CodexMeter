@@ -6,15 +6,18 @@ protocol UsageProviding: Sendable {
 
 struct CodexUsageService: UsageProviding, Sendable {
     private let locator: CodexExecutableLocator
+    private let tokenUsageScanner: TokenUsageScanner
     private let appServerTimeout: TimeInterval
     private let textCommandTimeout: TimeInterval
 
     init(
         locator: CodexExecutableLocator = CodexExecutableLocator(),
+        tokenUsageScanner: TokenUsageScanner = TokenUsageScanner(),
         appServerTimeout: TimeInterval = 15,
         textCommandTimeout: TimeInterval = 8
     ) {
         self.locator = locator
+        self.tokenUsageScanner = tokenUsageScanner
         self.appServerTimeout = appServerTimeout
         self.textCommandTimeout = textCommandTimeout
     }
@@ -25,17 +28,20 @@ struct CodexUsageService: UsageProviding, Sendable {
                 throw UsageError.codexNotFound
             }
 
+            let usage: UsageSnapshot
             do {
-                return try fetchFromAppServer(executable: executable)
+                usage = try fetchFromAppServer(executable: executable)
             } catch {
                 do {
-                    return try fetchFromTextCommand(executable: executable)
+                    usage = try fetchFromTextCommand(executable: executable)
                 } catch let fallbackError {
                     let primaryMessage = error.localizedDescription
                     let fallbackMessage = fallbackError.localizedDescription
                     throw UsageError.allMethodsFailed("\(primaryMessage)；\(fallbackMessage)")
                 }
             }
+
+            return usage.addingTokenUsage(tokenUsageScanner.scan())
         }.value
     }
 

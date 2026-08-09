@@ -20,6 +20,8 @@
 		A0010000000000000000000B /* UsageTextParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000B /* UsageTextParserTests.swift */; };
 		A0010000000000000000000C /* AppServerUsageParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000C /* AppServerUsageParserTests.swift */; };
 		A0010000000000000000000D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0020000000000000000000F /* XCTest.framework */; };
+		A0010000000000000000000E /* TokenUsageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000011 /* TokenUsageScanner.swift */; };
+		A0010000000000000000000F /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000012 /* AppIcon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		A0020000000000000000000E /* CodexMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodexMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0020000000000000000000F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 		A00200000000000000000010 /* CodexMeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodexMeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00200000000000000000011 /* TokenUsageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/TokenUsageScanner.swift; sourceTree = "<group>"; };
+		A00200000000000000000012 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				A00200000000000000000008 /* UsageTextParser.swift */,
 				A00200000000000000000009 /* UsageViewModel.swift */,
 				A0020000000000000000000A /* UsageView.swift */,
+				A00200000000000000000011 /* TokenUsageScanner.swift */,
 			);
 			path = Sources/CodexMeter;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				A0020000000000000000000D /* Info.plist */,
+				A00200000000000000000012 /* AppIcon.icns */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0010000000000000000000F /* AppIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +248,7 @@
 				A00100000000000000000008 /* UsageTextParser.swift in Sources */,
 				A00100000000000000000009 /* UsageViewModel.swift in Sources */,
 				A0010000000000000000000A /* UsageView.swift in Sources */,
+				A0010000000000000000000E /* TokenUsageScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
