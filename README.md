@@ -15,6 +15,9 @@ quota at a glance.
 - Shows the remaining quota directly in the menu bar, for example `Codex 40%`
 - Supports a custom menu bar label, or a percentage-only display
 - Opens a compact detail window with the weekly quota and reset time
+- Shows the total locally recorded token usage and a seven-day bar chart
+- Uses native Liquid Glass on macOS 26+ with a translucent compatibility style on macOS 15–25
+- Includes a custom macOS app icon designed around a usage gauge and token bars
 - Refreshes automatically every five minutes and supports manual refresh
 - Works with Homebrew, npm, and common standalone Codex CLI locations
 - Uses Swift, SwiftUI, MVVM, and no third-party libraries
@@ -86,6 +89,8 @@ The app adds common Homebrew and system directories to the child process
 interactive shell environment.
 
 No separate analytics service, backend, or third-party dependency is used.
+Token totals and the seven-day trend are calculated locally from `token_count`
+events in `~/.codex/sessions`; conversation content is never uploaded or shown.
 
 ## Project structure
 
@@ -103,6 +108,8 @@ Tests/
 
 The original bilingual V1 specification is available in
 [`Docs/PROJECT_SPEC.md`](Docs/PROJECT_SPEC.md).
+The latest implementation handoff is in
+[`Docs/OPTIMIZATION_LOG.md`](Docs/OPTIMIZATION_LOG.md).
 
 ## Contributing
 
@@ -127,6 +134,9 @@ CodexMeter is available under the [MIT License](LICENSE).
 - 在菜单栏直接显示剩余额度，例如 `Codex 40%`
 - 支持自定义菜单栏文字，也可以只显示百分比
 - 点击菜单栏文字，显示周额度和重置时间详情
+- 显示本机已记录的 Token 消耗总数与近 7 天柱状趋势
+- macOS 26 及以上使用原生 Liquid Glass，macOS 15–25 使用通透兼容样式
+- 配备以用量仪表盘和 Token 柱为主题的自定义 macOS 应用图标
 - 每 5 分钟自动刷新，并支持手动刷新
 - 支持通过 Homebrew、npm 和常见独立安装方式安装的 Codex CLI
 - 使用 Swift、SwiftUI 和 MVVM，不依赖第三方库
@@ -197,6 +207,8 @@ CodexMeter 首先启动本机 `codex app-server`，并请求
 菜单栏应用不会继承用户的交互式 shell 环境。
 
 项目不使用独立分析服务、后端或第三方依赖。
+Token 总数和近 7 天趋势在本机从 `~/.codex/sessions` 内的
+`token_count` 事件计算，不会上传或展示对话内容。
 
 ### 项目结构
 
@@ -214,6 +226,8 @@ Tests/
 
 原始 V1 双语需求说明位于
 [`Docs/PROJECT_SPEC.md`](Docs/PROJECT_SPEC.md)。
+最新的实现交接记录位于
+[`Docs/OPTIMIZATION_LOG.md`](Docs/OPTIMIZATION_LOG.md)。
 
 ### 参与贡献
 

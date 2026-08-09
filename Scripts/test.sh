@@ -11,6 +11,7 @@ xcrun swiftc \
     -module-cache-path "$project_dir/.build/ParserModuleCache" \
     Sources/CodexMeter/Models/UsageError.swift \
     Sources/CodexMeter/Models/UsageSnapshot.swift \
+    Sources/CodexMeter/Services/TokenUsageScanner.swift \
     Sources/CodexMeter/Services/UsageTextParser.swift \
     Sources/CodexMeter/Services/AppServerUsageParser.swift \
     Tests/CLI/ParserTestRunner.swift \
